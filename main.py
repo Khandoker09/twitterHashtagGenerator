@@ -12,7 +12,8 @@ Comments:
 #import dependencies 
 import pandas as pd
 import tweepy
-import time
+import datetime
+current_date = datetime.datetime.now()
 # dataframe function for excel file to display data of each tweet
 def printtweetdata(n, ith_tweet):
         print()
