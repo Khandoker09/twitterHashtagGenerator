@@ -89,7 +89,7 @@ def scrape(words, date_since, numtweet):
         #filename = 'match_one_tweets.xlsx'
         filename = str('_hashtag_list_')+str(current_date.year)+str('_')+str(current_date.month)+str('_')+str(current_date.day)
         # we will save our database as a CSV file.
-        db.to_excel(words+filename,index=False)
+        db.to_excel(str(words+filename + '.xlsx'),index=False)
  
 if __name__ == '__main__':
  
