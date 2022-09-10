@@ -10,10 +10,23 @@ Comments:
 
 '''
 #import dependencies 
+import tkinter as tk
 import pandas as pd
 import tweepy
 import datetime
 current_date = datetime.datetime.now()
+
+#create root window
+root = tk.Tk()
+root.title('Hashtag Generator')
+root.resizable(False, False)
+
+#entry widgets
+hashtag = tk.Entry(textvariable = 'enter Twitter HashTag to search for')
+date = tk.Entry(textvariable = "enter date of tweets 'yyyy-mm-dd' ")
+date.grid(row = 2, column = 0)
+hashtag.grid(row = 1, column = 0)
+
 # dataframe function for excel file to display data of each tweet
 def printtweetdata(n, ith_tweet):
         print()
@@ -104,7 +117,7 @@ if __name__ == '__main__':
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_key, access_secret)
         api = tweepy.API(auth)
- 
+        """
         # Enter Hashtag and initial date
         print("Enter Twitter HashTag to search for")
         words = input()
@@ -112,6 +125,6 @@ if __name__ == '__main__':
         date_since = input()
  
         # number of tweets you want to extract in one run
-        numtweet = 1000
+        numtweet = 1000"""
         scrape(words, date_since, numtweet)
         print('Scraping has completed!')
