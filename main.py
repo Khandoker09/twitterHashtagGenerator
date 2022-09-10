@@ -21,11 +21,22 @@ root = tk.Tk()
 root.title('Hashtag Generator')
 root.resizable(False, False)
 
+#labels
+hashtag_label = tk.Label(text = 'enter Twitter HashTag to search for ')
+date_label = tk.Label(text = "enter date of tweets 'yyyy-mm-dd' ")
+
+hashtag_label.grid(row = 1, column = 0)
+date_label.grid(row = 2, column = 0)
+
 #entry widgets
-hashtag = tk.Entry(textvariable = 'enter Twitter HashTag to search for')
-date = tk.Entry(textvariable = "enter date of tweets 'yyyy-mm-dd' ")
-date.grid(row = 2, column = 0)
-hashtag.grid(row = 1, column = 0)
+hashtag = tk.Entry()
+date = tk.Entry()
+
+hashtag.grid(row = 1, column = 2)
+date.grid(row = 2, column = 2)
+
+words = hashtag.get()
+date_since = date.get()
 
 # dataframe function for excel file to display data of each tweet
 def printtweetdata(n, ith_tweet):
@@ -124,7 +135,9 @@ if __name__ == '__main__':
         print("Enter Date since The Tweets are required in yyyy-mm--dd")
         date_since = input()
  
-        # number of tweets you want to extract in one run
-        numtweet = 1000"""
-        scrape(words, date_since, numtweet)
-        print('Scraping has completed!')
+        # number of tweets you want to extract in one run"""
+        numtweet = 1000
+        #scrape(words, date_since, numtweet)
+        #print('Scraping has completed!')
+        
+tk.mainloop()
