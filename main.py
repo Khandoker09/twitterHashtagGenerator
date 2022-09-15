@@ -2,7 +2,7 @@
 Puspose: This code was create to find all the relavent user from a specific hashtag
 date: 2022.07.06
 Author: Khandoker Tanjim Ahammad
-Parameter: Main parameter is the hashtag keyword , then the dates and also we can specify the langue too 
+Parameter: Main parameter is the hashtag keyword , then the dates and also we can specify the language too 
 Comments:
 
 
@@ -23,10 +23,11 @@ root.resizable(False, False)
 
 #labels
 hashtag_label = tk.Label(text = 'enter Twitter HashTag to search for ')
-date_label = tk.Label(text = "enter date of tweets 'yyyy-mm-dd' ")
+date_label = tk.Label(text = "enter date of tweets 'yyyy-mm--dd' ")
 
 hashtag_label.grid(row = 1, column = 0)
 date_label.grid(row = 2, column = 0)
+
 
 #entry widgets
 hashtag = tk.Entry()
@@ -35,6 +36,7 @@ date = tk.Entry()
 hashtag.grid(row = 1, column = 2)
 date.grid(row = 2, column = 2)
 
+#getting the entered values and attaching them to variables
 words = hashtag.get()
 date_since = date.get()
 
@@ -114,30 +116,33 @@ def scrape(words, date_since, numtweet):
         filename = str('_hashtag_list_')+str(current_date.year)+str('_')+str(current_date.month)+str('_')+str(current_date.day)
         # we will save our database as a CSV file.
         db.to_excel(str(words+filename + '.xlsx'),index=False)
+
+#callback function for button
+def callback():
+
+    if __name__ == '__main__':
  
-if __name__ == '__main__':
- 
-        # Enter your own credentials obtained
-        # from your developer account
-        consumer_key = "api key"
-        consumer_secret = "api key"
-        access_key = "api key"
-        access_secret = "api key"
+            # Enter your own credentials obtained
+            # from your developer account
+            consumer_key = "api key"
+            consumer_secret = "api key"
+            access_key = "api key"
+            access_secret = "api key"
  
  
-        auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-        auth.set_access_token(access_key, access_secret)
-        api = tweepy.API(auth)
-        """
-        # Enter Hashtag and initial date
-        print("Enter Twitter HashTag to search for")
-        words = input()
-        print("Enter Date since The Tweets are required in yyyy-mm--dd")
-        date_since = input()
- 
-        # number of tweets you want to extract in one run"""
-        numtweet = 1000
-        #scrape(words, date_since, numtweet)
-        #print('Scraping has completed!')
+            auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+            auth.set_access_token(access_key, access_secret)
+            global api
+            api = tweepy.API(auth)
+            # number of tweets you want to extract in one run
+            numtweet = 1000
+            scrape(words, date_since, numtweet)
+            output = tk.Label(text = 'Scraping complete!')
+            output.grid(row = 5, column = 0)
+        
+    
+button = tk.Button(text = 'search', foreground = 'white', background = 'blue',
+                   command = callback)
+button.grid(row = 4, column = 2)
         
 tk.mainloop()
