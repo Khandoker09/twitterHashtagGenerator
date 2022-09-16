@@ -5,6 +5,7 @@ Its a simple tool to manage twitter  hasgtag query in a excel file. using Twitte
 ### Advantages:
 - Using pyinstaller one can easily build a windows executable file in .exe format 
 - Can search anything in any language
+- Small graphical interface for the people who has no technial knowledge 
 ### Disadvantages:
 - Scrape only upto 1000 users 
 - this tool is little bit slow in time to time 
